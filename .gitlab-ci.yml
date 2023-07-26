@@ -35,7 +35,7 @@ deploy-job: # This job runs in the deploy stage.
   image: google/cloud-sdk
   environment: production
   script:
-    - ls -la
+    - gcloud components update
     - echo $GCP_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - echo "Deploying application..."
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
